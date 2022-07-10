@@ -1,0 +1,61 @@
+% arara: clean: {files: [main.aux, main.bbl, main.bcf, main.blg, main.glo, main.log, main.out, main.run.xml, main.toc, main.xdy, main.acn, main.acr, main.alg, main.glg, main.gls, main.glsdefs, main.idx, main.ilg, main.ind, main.ist, main.lof, main.lol, main.mw]}
+% arara: pdflatex: {shell: yes}
+% arara: makeglossaries
+% arara: makeindex: {style: /usr/share/texmf/tex/latex/tfgtfmthesisuam/tfgtfmthesisuam.ist }
+% arara: bibtex
+% arara: pdflatex: {shell: yes}
+% arara: pdflatex: {shell: yes}
+% arara: clean: {files: [main.aux, main.bbl, main.bcf, main.blg, main.glo, main.log, main.out, main.run.xml, main.toc, main.xdy, main.acn, main.acr, main.alg, main.glg, main.gls, main.glsdefs, main.idx, main.ilg, main.ind, main.ist, main.lof, main.lol, main.mw]}
+
+\documentclass[english, tfg, loc, lof, covers, printable, firstnumbered, epsbased]{tfgtfmthesisuam}
+
+\title{Motor de videojuegos basado en entidades, componentes y sistemas}
+\author{Daniel Litvak}
+\advisor{Francisco Jurado Monroy}
+\levelin{Ingeniería Informática}
+\copyrightdate{2022}
+
+\dedication{To my parents, and my partner in life}
+\prefacefile{content/preface}
+\resumenfile{content/abstract/spanish}
+\abstractfile{content/abstract/english}
+\ackfile{content/thanks}
+
+\palabrasclave{Videojuegos}
+\keywords{Videogames}
+
+\coverdata
+{
+  Escuela Politécnica Superior \\
+  Universidad Autónoma de Madrid \\
+  C\textbackslash Francisco Tomás y Valiente n° 11
+}
+
+\bibliographyconfig{references}
+
+\codesdir{assets/code}
+\datadir{assets/data}
+\graphicsdir{assets/graphics}
+\logosdir{assets/logos}
+
+\pdfmetavalues{Daniel Litvak}{Motor de videojuegos basado en ECS}{TFG}{TFG}
+
+\begin{document}
+
+\input{content/glossary/acronyms}
+\input{content/glossary/definitions}
+
+\chapter{Introduction}{content/body/introduction}
+\chapter{State of the art}{content/body/state_of_the_art}
+\chapter{Design}{content/body/design}
+\chapter{Implementation}{content/body/implementation}
+\chapter{Development}{content/body/development}
+\chapter{Testing}{content/body/testing}
+\chapter{Conclusions}{content/body/conclusions}
+\chapter{Future work}{content/body/future}
+
+\appendix
+
+\chapter{Example Appendix}{content/appendices/example}
+
+\end{document}
