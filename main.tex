@@ -1,4 +1,4 @@
-% arara: clean: {files: [main.aux, main.bbl, main.bcf, main.blg, main.glo, main.log, main.out, main.run.xml, main.toc, main.xdy, main.acn, main.acr, main.alg, main.glg, main.gls, main.glsdefs, main.idx, main.ilg, main.ind, main.ist, main.lof, main.lol, main.mw]}
+% arara: clean: {files: [main.aux, main.bbl, main.bcf, main.blg, main.glo, main.log, main.out, main.run.xml, main.toc, main.xdy, main.acn, main.acr, main.alg, main.glg, main.gls, main.glsdefs, main.idx, main.ilg, main.ind, main.ist, main.lof, main.lol, main.mw, content/*.aux]}
 % arara: pdflatex: {shell: yes}
 % arara: makeglossaries
 % arara: makeindex: {style: /usr/share/texmf/tex/latex/tfgtfmthesisuam/tfgtfmthesisuam.ist }
@@ -40,18 +40,38 @@
 
 \pdfmetavalues{Daniel Litvak}{Motor de videojuegos basado en ECS}{TFG}{TFG}
 
+\usetikzlibrary{er}
+
 \begin{document}
 
 \input{content/glossary/acronyms}
 \input{content/glossary/definitions}
 
 \chapter{Introduction}{content/body/introduction}
+
 \chapter{State of the art}{content/body/state_of_the_art}
+
 \chapter{Design}{content/body/design}
+  \section{Project scope}{content/body/design_scope}
+  \section{Functional requirements}{content/body/design_func_requirements}
+
 \chapter{Implementation}{content/body/implementation}
+  \section{Language}{content/body/implementation_language}
+  \section{Dependencies}{content/body/implementation_dependencies}
+  \section{Entity component system}{content/body/implementation_ecs}
+  \section{Renderer}{content/body/implementation_renderer}
+  \section{Physics}{content/body/implementation_physics}
+    \subsection{Collisions}{content/body/implementation_physics_collisions}
+    \subsection{Rigid body physics}{content/body/implementation_physics_rigidbody}
+  \section{Sound}{content/body/implementation_sound}
+  \section{Scripting}{content/body/implementation_scripting}
+
 \chapter{Development}{content/body/development}
+
 \chapter{Testing}{content/body/testing}
+
 \chapter{Conclusions}{content/body/conclusions}
+
 \chapter{Future work}{content/body/future}
 
 \appendix

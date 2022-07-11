@@ -1,0 +1,15 @@
+The main objective is to be capable of \Index{rendering} 3D scenes.
+However, 2D scenes should also be possible.
+The rendering will be hardware accelerated on platforms that support it.
+In order to render something it will need a mesh and a material.
+The \Index{renderer} selects a specific shader depending on the type of mesh and meterial.
+
+\paragraph{Deferred shading}
+\Subindex{shading}{Deferred shading}, or \Subindex{rendering}{deferred rendering} is a technique which optimizes lighting calculations,
+allowing for larger scenes with more light sources.
+The way this works is by rendering the scene in multiple passes.
+In the initial stage we render each mesh individually,
+calculating the position, normal, albedo and specular index for each pixel.
+In the lighting pass,
+we use this information to do our lighting calculations,
+ensuring we only calculate each pixel's lighting once.\cite{deferred_shading}
