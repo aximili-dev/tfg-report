@@ -4,6 +4,9 @@ BIB_FILES = $(shell find . -type f -name '*.bib')
 all: main.pdf
 
 main.pdf: $(TEX_FILES) $(BIB_FILES)
-	@arara -l main
+	@arara -l -v main
 
-.PHONY: all
+watch:
+	@entr -s arara -l main
+
+.PHONY: all watch

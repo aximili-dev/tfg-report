@@ -1,0 +1,19 @@
+% Maybe talk about scope instead of purpose?
+The main purpose of the engine is to render 3D scenes.
+Nevertheless, it should be possible to use the tools to render 2D scenes as well,
+though using the engine in this way is left as an exercise to the reader.
+In order to provide comprehensive tools for developers,
+the scope of the project encompasses the following aspects of 3D rendering:
+
+\begin{itemize}
+  \item \textbf{Bitmap Font Rendering.} A very helpful module that will allow a user to render debug information directly on the screen in real time.
+  \item \textbf{3D Model Rendering.} The most essential feature for rendering 3D scenes. The engine is able to import 3D meshes from Wavefront OBJ files and render them.
+  \item \textbf{Texture Mapping.} Furthermore, users can import PNG texture files, and map them to meshes for further detail and aesthetics.
+  \item \textbf{Lighting.} In order to provide a better depth perception, the Phong reflection model is implemented to model different types of lights.
+  \item \textbf{Procedural Generation.} While not a fundamental aspect of 3D rendering, different algorithms like Perlin Noise and Marching Cubes are implemented to allow a user to render arbitrarily large or detailed scenes.
+\end{itemize}
+
+Note that the scope of the project is far from exhaustive.
+There are many other aspectes of graphics rendering like shadow mapping, physics based rendering, physics simulations and many others\cite{learnopengl}.
+While they are outside of the scope of this project,
+the hope is that the implementation will allow these features to be integrated in future iterations without much additional effort.
