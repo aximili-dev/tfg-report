@@ -9,13 +9,15 @@
 
 \documentclass[english, tfg, loc, lof, covers, printable, firstnumbered, epsbased]{tfgtfmthesisuam}
 
-\title{Motor de videojuegos basado en entidades, componentes y sistemas}
+\usepackage{minted}
+
+\title{Graphics Engine built on OpenGL in Common Lisp}
 \author{Daniel Litvak}
 \advisor{Francisco Jurado Monroy}
 \levelin{Ingeniería Informática}
-\copyrightdate{2022}
+\copyrightdate{2023}
 
-\dedication{To my parents, and my partner in life}
+\dedication{To my parents}
 \prefacefile{content/preface}
 \resumenfile{content/abstract/spanish}
 \abstractfile{content/abstract/english}
@@ -35,10 +37,10 @@
 
 \codesdir{assets/code}
 \datadir{assets/data}
-\graphicsdir{assets/graphics}
-\logosdir{assets/logos}
+\graphicsdir{img}
+\logosdir{img}
 
-\pdfmetavalues{Daniel Litvak}{Motor de videojuegos basado en ECS}{TFG}{TFG}
+\pdfmetavalues{Daniel Litvak}{Graphics Engine}{TFG}{TFG}
 
 \usetikzlibrary{er}
 
@@ -50,6 +52,7 @@
 \chapter{Introduction}{content/body/0100_introduction}
   \section{Organization}{content/body/0103_organization}
   \section{Project Purpose}{content/body/0101_purpose}
+  \section{Motivation}{content/body/0104_motivation}
   \section{Project Scope}{content/body/0102_scope}
 
 \chapter{State of the Art}{content/body/0200_background}
@@ -68,6 +71,9 @@
   \section{OpenGL Integration with Common Lisp}{content/body/0402_cl-opengl}
   \section{3D Modeling and Rendering}{content/body/0403_modeling_rendering}
   \section{Lighting and Texture Mapping}{content/body/0404_lighting}
+  \section{Fractal Noise}{content/body/0405_fractal_noise}
+  \section{Procedural Meshes}{content/body/0407_procedural}
+  \section{Bitmap Font Rendering}{content/body/0406_bmp_fonts}
 
 \chapter{Testing}{content/body/0500_testing}
   \section{Unit Testing}{content/body/0501_unit_testing}

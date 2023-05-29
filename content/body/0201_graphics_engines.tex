@@ -1,0 +1,54 @@
+Graphics engines,
+or game engines,
+are some of the most complex pieces of software that exist.
+This is because of the many systems they tend to implement,
+and these systems having to integrate well with each other.
+As a consequence,
+they have become an important part of a wide array of applications and industries.
+Scene graphs and scripting systems allow for rapid development.
+Developers can use detailed lighting and texturing models for virtual reality visualizations or architectural design.
+In short,
+any type of creator who wants to express their idea in some three-dimensional way,
+will likely use a graphics engine.
+The following is a more detailed list of the different systems that can be available in such an engine.
+
+\begin{itemize}
+\item \textbf{Resource Management.}
+  In charge of loading assets from storage into memory,
+  and mapping them onto the relevant data structures the engine uses.
+\item \textbf{Meshes.}
+  Holds references to 3D models and the GPU buffers where they are stored.
+  Also allows a program to manipulate a mesh,
+  so that a model can change shape or be animated.
+\item \textbf{Lighting.}
+  A collection of shaders that get compiled into a rendering pipeline.
+  This pipeline instructs the GPU how to render a mesh.
+\item \textbf{Sound.}
+  An API to define different sound sources, and mix them together.
+\item \textbf{Animation.}
+  Handles keyframes and different mesh states to animate between them.
+\item \textbf{Networking.}
+  A higher level abstraction on top the operating system's network stack,
+  to share game state over the network for different players.
+\item \textbf{Input Handling.}
+  Can be done by specifying callbacks that should be run on any input event,
+  or by polling the engine for the current input state at a fixed rate.
+\item \textbf{Physics.}
+  Many subsystems actually comprise the physics system.
+  Some of them are detailed below.
+  \begin{itemize}
+  \item {Rigid body physics.}
+    Models meshes as rigid bodies that react to gravity and collide with each other.
+  \item {Soft body physics.}
+    Models meshes as malleable bodies that can deform upon collision.
+  \item {Cloth simulations.}
+    Model a plane as a piece of cloth that can be deformed and ripped.
+  \item {Fluid simulations.}
+    Model a collection of points as if they were particles in a fluid.
+  \end{itemize}
+\item {Navigation.}
+  Offers implementations of navigation meshes and agents to easily model autonomous behavior.
+\end{itemize}
+
+This list is again by no means exhaustive,
+many other features are made available by some engines.

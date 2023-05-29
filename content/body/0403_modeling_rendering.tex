@@ -1,0 +1,59 @@
+To represent 3D models in software,
+and storing them in a way that can be understood by OpenGL,
+many different parts were written that all work together.
+
+\subsection{Vertex Primitives}
+
+In order to render an object,
+we need to know its visual properties.
+The best way to represent this is by sampling a series of points on the object's surface.
+If we group the visual properties of these points together,
+we get vertices.
+When talking about these properties in this contex,
+we call them vertex attributes\cite{game_engine_arch}.
+There are many attributes that are typically included,
+but in this engine we only use the following
+
+\begin{itemize}
+\item \textbf{Position vector}
+  $(p_i = [\begin{matrix} p_{ix} & p_{iy} & p_{iz} \end{matrix}])$.
+  The position of this vertex in 3D space.
+  This is usually relative to the object's origin,
+  or what is also called \textit{model space}.
+\item \textbf{Normal vector}
+  $(p_i = [\begin{matrix} n_{ix} & n_{iy} & n_{iz} \end{matrix}])$.
+  This vector defines the surface normal at this point.
+  It's used for dynamic lighting calculations.
+\item \textbf{Diffuse color}
+  $(d_i = [\begin{matrix} d_R & d_G & d_B \end{matrix}])$.
+  This vector describes the diffuse color of the surface at this point,
+  expressed in the RGB color space.
+  If we were to implement blending in this project,
+  we would also include an \textit{alpha} value here.
+\item \textbf{Texture coordinates}
+  $(t_{ij} = [\begin{matrix} u_{ij} & v{ij} \end{matrix}])$.
+  This vector maps each vertex onto a texture.
+  One way to visualize this is to imagine the object unwrapping,
+  and then flattening onto a 2D plane.
+\end{itemize}
+
+\subsubsection{Vertex formats}
+
+Depending on the mesh we want to render,
+we will want to include some vertex attributes in the vertices while omitting others.
+For example,
+when rendering a detailed 3D model,
+it is desirable to keep as much of that detail as possible in a texture,
+and then use a texture coordinate attribute to map that detail onto our mesh.
+If however,
+we are generating some procedural meshes like fractals,
+it might make more sense to use a diffuse color attribute,
+since all our detail will be generated at the same time as the mesh.
+
+Keeping all this in mind,
+the way we have implemented this is by defining a single \dfn{struct} (code \ref{COD:VERT_STRUCT}).
+This \dfn{struct} will contain fields for all supported attributes.
+When writing the vertices to an OpenGL buffer,
+unneeded attributes will be skipped and the \ac{vao} will only have the relevant attributes mapped to attribute pointers.
+
+\LispCode[COD:VERT_STRUCT]{Vertex struct definition}{Vertex Struct Definition}{vertex-struct.lisp}{}{}{}
