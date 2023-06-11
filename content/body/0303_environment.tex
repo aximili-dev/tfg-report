@@ -1,0 +1,35 @@
+% Talk about quicklisp and asdf
+% Talk about emacs and sly
+
+\label{SEC:DEV_ENV}
+
+\subsection{Package management}
+
+Like many programming languages,
+Common Lisp does not have a native build and package management system.
+I used two pieces of software to help with that.
+The first is Quicklisp,
+a library manager.
+It is supported by many Common Lisp implementations,
+and provides access to over 1500 libraries.\cite{quicklisp}
+In order to actually specify the libraries needed though,
+I used \ac{asdf}.
+It is the ``\textit{de facto} build facility for Common Lisp''\cite{asdf}.
+With it,
+you can describe how a lisp project is organized,
+and how it should be built and loaded.
+
+\subsection{Integrated Development Environment}
+
+As mentioned in section \ref{SEC:CL},
+Common Lisp is developed against a \ac{repl}.
+For this purpose,
+I set up the Emacs editor to act as an \ac{ide}.
+Emacs is well-suited for Common Lisp development,
+since it is build with a different flavor of lisp,
+Emacs Lisp.
+Apart from that,
+there exist several packages for emacs that integrate the editor with the \ac{repl}.
+I chose to install SLY,
+because of its many useful debugging features.
+I've included my full Emacs configuration in appendix \ref{APP:EMACS} for reference.

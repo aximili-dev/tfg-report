@@ -7,6 +7,9 @@
 % arara: pdflatex: {shell: yes}
 % arara: clean: {extensions: [aux, bbl, bcf, blg, glo, log, out, xml, toc, xdy, acn, acr, alg, glg, gls, glsdefs, idx, ilg, ind, ist, lof, lol, mw]}
 
+% TODO:
+% - Move organization to end of first chapter
+
 \documentclass[english, tfg, loc, lof, covers, printable, firstnumbered, epsbased]{tfgtfmthesisuam}
 
 \usepackage{minted}
@@ -18,6 +21,7 @@
 \copyrightdate{2023}
 
 \dedication{To my parents}
+\famouscite{Never forget what you are, for surely the world will not. \\ Make it your strength. Then it can never be your weakness. \\ Armour yourself in it, and it will never be used to hurt you. \\[0.1em] \begin{flushright}George R. R. Martin, A Game of Thrones\end{flushright}}
 \prefacefile{content/preface}
 \resumenfile{content/abstract/spanish}
 \abstractfile{content/abstract/english}
@@ -49,47 +53,47 @@
 \input{content/glossary/acronyms}
 \input{content/glossary/definitions}
 
-\chapter{Introduction}{content/body/0100_introduction}
-  \section{Organization}{content/body/0103_organization}
-  \section{Project Purpose}{content/body/0101_purpose}
-  \section{Motivation}{content/body/0104_motivation}
-  \section{Project Scope}{content/body/0102_scope}
+\chapter{Introduction}{content/body/0100_introduction}                              % Done
+  \section{Project Purpose}{content/body/0101_purpose}                              % Done
+  %\section{Motivation}{content/body/0104_motivation}                                % Medium
+  \section{Project Scope}{content/body/0102_scope}                                  % Done
+  \section{Organization}{content/body/0103_organization}                            % Done (Revise)
 
-\chapter{State of the Art}{content/body/0200_background}
-  \section{Graphics Engines Basics}{content/body/0201_graphics_engines}
-  \section{OpenGL Overview}{content/body/0202_opengl}
-  \section{Common Lisp}{content/body/0203_common_lisp}
-  \section{Previous Work}{content/body/0204_state_of_the_art}
+\chapter{State of the Art}{content/body/0200_background}                            % Empty
+  \section{Graphics Engines Basics}{content/body/0201_graphics_engines}             % Done
+  \section{Graphics Libraries}{content/body/0202_opengl}                            % Done
+  \section{Common Lisp}{content/body/0203_common_lisp}                              % Easy
+  \section{Previous Work}{content/body/0204_state_of_the_art}                       % Half done
 
-\chapter{Methods and Materials}{content/body/0300_methods_and_materials}
-  \section{Software Development Life Cycle}{content/body/0301_lifecycle}
-  \section{Hardware and Software Requirements}{content/body/0302_requirements}
-  \section{Common Lisp Programming Environment}{content/body/0303_environment}
+\chapter{Methods and Materials}{content/body/0300_methods_and_materials}            % Short
+  \section{Software Development Life Cycle}{content/body/0301_lifecycle}            % Medium
+  \section{Hardware and Software Requirements}{content/body/0302_requirements}      % Hard
+  \section{Common Lisp Programming Environment}{content/body/0303_environment}      % Easy
 
-\chapter{Design and Implementation}{content/body/0400_implementation}
-  \section{System Architecture}{content/body/0401_architecture}
-  \section{OpenGL Integration with Common Lisp}{content/body/0402_cl-opengl}
-  \section{3D Modeling and Rendering}{content/body/0403_modeling_rendering}
-  \section{Lighting and Texture Mapping}{content/body/0404_lighting}
-  \section{Fractal Noise}{content/body/0405_fractal_noise}
-  \section{Procedural Meshes}{content/body/0407_procedural}
-  \section{Bitmap Font Rendering}{content/body/0406_bmp_fonts}
+\chapter{Design and Implementation}{content/body/0400_implementation}               % 
+  \section{System Architecture}{content/body/0401_architecture}                     % 
+  \section{OpenGL Integration with Common Lisp}{content/body/0402_cl-opengl}        %
+  \section{3D Modeling and Rendering}{content/body/0403_modeling_rendering}         % 
+  \section{Lighting and Texture Mapping}{content/body/0404_lighting}                %
+  \section{Fractal Noise}{content/body/0405_fractal_noise}                          %
+  \section{Procedural Meshes}{content/body/0407_procedural}                         %
+  \section{Bitmap Font Rendering}{content/body/0406_bmp_fonts}                      %
 
-\chapter{Testing}{content/body/0500_testing}
-  \section{Unit Testing}{content/body/0501_unit_testing}
-  \section{Exploratory Testing}{content/body/0502_examples}
+\chapter{Testing}{content/body/0500_testing}                                        %
+  \section{Unit Testing}{content/body/0501_unit_testing}                            %
+  \section{Exploratory Testing}{content/body/0502_examples}                         %
 
-\chapter{Discussion and Analysis}{content/body/0600_discussion}
-  \section{Results Interpretation}{content/body/0601_results}
-  \section{Challenges and Limitations}{content/body/0602_challenges}
-  \section{Implications and Applications}{content/body/0603_applications}
+\chapter{Discussion and Analysis}{content/body/0600_discussion}                     %
+  \section{Results Interpretation}{content/body/0601_results}                       %
+  \section{Challenges and Limitations}{content/body/0602_challenges}                %
+  \section{Implications and Applications}{content/body/0603_applications}           %
   
-\chapter{Conclusion and Future work}{content/body/0700_conclusions}
-  \section{Summary of Findings}{content/body/0701_summary}
-  \section{Recommendations for Future Projects}{content/body/0702_recommendations}
+\chapter{Conclusion and Future work}{content/body/0700_conclusions}                 %
+  \section{Summary of Findings}{content/body/0701_summary}                          %
+  \section{Recommendations for Future Projects}{content/body/0702_recommendations}  %
 
 \appendix
 
-\chapter{Example Appendix}{content/appendices/example}
+\chapter{Example Appendix}{content/appendices/emacs}
 
 \end{document}

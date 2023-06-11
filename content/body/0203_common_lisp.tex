@@ -1,0 +1,74 @@
+% Talk about programming in common lisp
+% - Interactive development environment (short, more detail in methods and materials)
+% - Homoiconicity
+% - First language used for computer rendering
+
+\label{SEC:CL}
+
+Common Lisp exists as a dialect in a large family of Lisp programming languages.
+It is important to note that Common Lisp itself is not a language implementation,
+but rather a language specification.
+It has been published in ANSI standard \textit{ANSI INCITS 226-1994 (S20018)}.
+There is also the Common Lisp HyperSpec,
+an HTML version which has been derived from the standard with permission from ANSI and X3.\cite{clhs}
+
+There are many features that set Common Lisp apart from other programming languages.
+Here are some that were particularly helpful for this project.
+Note that for the rest of this document,
+Common Lisp and lisp will be used interchangeably.
+
+\subsection{REPL driven development}
+
+The first thing that stands out from Common Lisp is that there is no real concept of ``program''.
+Rather when you start the interpreter,
+you are faced with a \ac{repl}.
+In this environment you can execute any lisp code,
+such as in listings \ref{COD:REPL_1} and \ref{COD:REPL_2}.
+By default,
+any new functions or data structures you define will be confined to this \ac{repl}.
+There are two different ways to make your code persistent.
+The first is by saving the current state of the \ac{repl} to an image,
+which can be booted up at a later date to continue working with it.
+The second one,
+and the one used for this project,
+is by using an \ac{ide} capable of linking code you write in files,
+with an existing \ac{repl} session.
+The benefits of the second approach are that you get to have a static copy of the code you write,
+which is benefitial for source control and collaboration.
+The setup used for this project will be explained in more detail in section \ref{SEC:DEV_ENV}
+
+\LispCode[COD:REPL_1]{REPL example \textemdash Code execution}{Some basic lisp functions being executed. In this case the \texttt{+} and \texttt{nth} functions}{repl-1.lisp}{}{}{}
+
+\LispCode[COD:REPl_2]{REPL example \textemdash Function definition}{This function definition would be lost if the proper steps aren't taken before closing the REPL session.}{repl-2.lisp}{}{}{}
+
+One major consequence of how the Common Lisp \ac{repl} works,
+is that you get code reloading for free.
+What this means is that while the code is running,
+you can modify a specific function,
+recompile it,
+and see the changes take effect without having to restart the entire program.
+This is also very useful for debugging,
+since whenever an error is encountered,
+the lisp debugger will allow you to fix it while execution is paused.
+
+\subsection{Homoiconicity}
+
+Homoiconicity is a property of certain programming languages,
+where the program structure can be manipulated as data in the same language.
+In the context of Common Lisp,
+this property emerges from the use of \acs{sexpr}.
+The same notation is used to represent lisp code,
+such as function invocations,
+as well as the main lisp data structure,
+the list.
+For a more concrete example refer back to listing \ref{COD:REPL_1},
+where an \ac{sexpr} is used for the \texttt{nth} function invocation,
+and also to define its second argument.
+
+One other way this manifests in Common Lisp is in its powerful macro system.
+Since code and data are treated the same,
+no separate macro language is needed.
+This makes writing macros very easy.
+
+%\subsection{Computer Graphics history}
+
