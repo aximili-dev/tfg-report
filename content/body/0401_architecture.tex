@@ -8,3 +8,14 @@
 % - debug subsystem
 % - bitmap font rendering
 % - shader abstraction
+
+\label{SEC:ARCH}
+
+To keep with the spirit of building a minimalist graphics engine,
+the architecture has been designed as a set of interfaces,
+bundled together in a library.
+The primary entry point into the engine is the \texttt{with-graphics} macro.
+By itself however,
+it will only create a window and open it.
+Everything else in the engine is optional to use,
+and the remaining sections in this chapter will describe each of these modules in detail.

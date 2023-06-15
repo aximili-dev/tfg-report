@@ -1,2 +1,33 @@
 % Mention texture atlases
 % Describe the math and shader used
+
+One important but easily overlooked aspect of this project was rendering text.
+Once you are rendering complex scenes,
+getting real-time debug information in a console is very overwhelming.
+Since usually you only want to see the current state of certain variables,
+showing them on screen is the best option.
+
+It is possible to render vector fonts like TTF or OTF formats,
+but since that requires a library for the rendering,
+and there aren't many to choose from for Common Lisp,
+I opted for bitmap fonts instead.
+
+A bitmap font is a font that is entirely defined in one image file.
+The downside of this is that scaling the font by any fractional factor will result in blurry text,
+since the pixel size is fixed.
+The upside is that rendering any character comes down to locating it in a texture,
+and mapping that texture to some surface.
+
+The font I chose is licensed under Create Commons 0,
+and has all its characters conveniently placed as a function of their Unicode code point.
+I took some measurements using GIMP,
+and came up with the following numbers.
+
+\begin{itemize}
+\item The width of each character is 7 pixels.
+\item The height of each character is 11 pixels.
+\item The X position of each character is $98 + 14C_{3,0}$, where C is the last four bits of the character's code point.
+\item The Y position of each character is $66 + 13C{15,4}$, where C is the first 12 bits of the character's code point.
+\end{itemize}
+
+An example of some text rendered with this font can be seen in figure \ref{FIG:TERRAIN}

@@ -1,3 +1,48 @@
 % Describe phong lighting model
 % Implmented in shaders primarily
 % Material and light structs
+
+\subsection{Lighting}
+
+In order to achieve lighting effects,
+the Phong reflection model was implemented.
+It was developed by Bui Tuong Phong in 1975\cite{phong}.
+It's an empirical model of local illumination.
+It describes surface reflections as the combination of diffuse reflection,
+which fall off gradually,
+and specular reflection,
+which causes small highlights.
+It also introduces a third \textit{ambient} term,
+to account for light that is scattered about an entire scene.
+
+The way it's implemented in this project is using an OpenGL shader program.
+The first stage, the vertex shader,
+runs for every vertex in the mesh and takes care of transforming it from world space,
+to screen space.
+The second stage, the fragment shader,
+takes the transformed vertex and shades it.
+It calculates the three terms of the Phong model separately,
+and then just adds them together for the final result.
+
+The final result will depend on the amount of lights that influence the mesh being lit.
+Since running the calculations for every pixel,
+and for every light can be very inefficient,
+there are many ways to simplify this.
+The easiest is to break a scene up into chunks,
+this way the rendering code can ensure that a mesh is only lit by the lights that are a certain vicinity,
+reducing the number of calculations that have to be made.
+
+\subsection{Texture Mapping}
+
+Another important feature when it comes to lighting effects is texture mapping.
+By mapping a diffuse texture as well as a specular texture,
+the Phong model detailed in the previous section shows its true power.
+When shading flat surfaces,
+it can give the impression of depth and reflections without extra geometry.
+An example is shown in figure \ref{FIG:PHONG}
+
+\begin{figure}[Phong lighting with texture mapping]{FIG:PHONG}{A cube mesh with diffuse and specular textures mapped to it, shaded using the Phong Reflection Model}
+  \subfigure[SBFIG:CONTAINER_DIFFUSE]{Diffuse texture}{\image{}{3cm}{container}}
+  \subfigure[SBFIG:CONTAINER_SPECULAR]{Specular map}{\image{}{3cm}{container.specular}}
+  \subfigure[SBFIG:CONTAINER_RENDER]{Rendered mesh}{\image{}{3cm}{container_render}}
+\end{figure}

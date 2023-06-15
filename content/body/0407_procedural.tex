@@ -1,1 +1,35 @@
 % Talk about marching cubes
+
+\label{SEC:PROCEDURAL}
+
+\subsection{Base mesh}
+
+When generating procedural meshes,
+it's very useful to have a starting point.
+I found the easiest starting point was a simple plane.
+Multiple planes can be combined to form cubes,
+and the vertices of a cube can be normalized to form a sphere.
+
+OpenGL supports a type of indexed mesh called a triangle strip.
+In this mesh,
+the \ac{vbo} as always holds all the unique vertices.
+The \ac{ebo} however,
+instead of indexing individual triangles,
+will make use of the fact that in a plane most vertices are shared by multiple triangles.
+
+\subsection{Mesh manipulation}
+
+Once a base mesh has been generated,
+transformations can be applied to it to get procedural or even organic shapes.
+If for example we sample a 2D plane of fractal noise based on perlin noise,
+and use the random values to modify the height of each vertex,
+we can easily create natural looking terrain.
+See figure \ref{FIG:TERRAIN}
+
+\begin{figure}[Procedural terrain mesh]{FIG:TERRAIN}{A procedural mesh generated using a plane of triangle strips, and fractal noise.}
+  \subfigure[SBFIG:TERRAIN_LINES]{Rendered showing underlying geometry}{\image{0.4\textwidth}{}{terrain_lines}}
+  \subfigure[SBFIG:TERRAIN_FILLED]{Rendered using triangles}{\image{0.4\textwidth}{}{terrain_filled}}
+\end{figure}
+
+
+\subsection{Marching cubes}

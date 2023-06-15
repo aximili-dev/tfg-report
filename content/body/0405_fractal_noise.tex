@@ -1,16 +1,16 @@
-One of the goals of this project is the ability to generate procedural meshesh.
+One of the goals of this project is the ability to generate procedural meshes.
 A very important tool to that end is 3D smooth noise.
 When we talk about noise,
-we are talking about any \textit{n} dimentional function that will output a random value.
+we are talking about any \textit{n} dimensional function that will output a random value.
 In the case of smooth noise,
 the desired effect is for those values to change gradually when the input parameters also change gradually.
 One such example can be seen in figure \ref{SBFIG:PERLIN}.
 In order to generate higher detail and a more organic look,
-lower frequency, scaled up noise (or viceversa) can be blended on top,
+lower frequency, scaled up noise (or vice-versa) can be blended on top,
 like in figure \ref{SBFIG:PERLIN_FRACTAL}.
 
-\begin{figure}[Perlin noise example]{FIG:PERLIN}{2D slice through 3D perlin noise.}
-  \subfigure[SBFIG:PERLIN]{2D slice through 3D perlin noise}{\image{0.4\textwidth}{}{perlin}}
+\begin{figure}[Perlin noise example]{FIG:PERLIN}{2D slice through 3D Perlin noise.}
+  \subfigure[SBFIG:PERLIN]{2D slice through 3D Perlin noise}{\image{0.4\textwidth}{}{perlin}}
   \subfigure[SBFIG:PERLIN_FRACT]{Layered perlin noise}{\image{0.4\textwidth}{}{perlin_fractal}}
 \end{figure}
 
@@ -21,23 +21,25 @@ It was developed by Ken Perlin in 1983 because he was frustrated with the ``mach
 Algorithm \ref{ALG:PERLIN} explains how it works.
 It has been adapted from the original to reduce duplicate operations.
 
-% Probably best to break down into sections, use natural language
+\subsubsection{The algorithm}
 
-\begin{algorithmN}[ALG:PERLIN]{Perlin Noise}{Perlin noise algorithm. It differs from the original in that a context object is used to keep track of previous calculations. By including these in the noise implementation, the caller only has to keep track of a seed to get repeatable values.}
-  \SetKwInOut{Input}{input}
-  \SetKwInOut{Output}{output}
-  \SetKwFunction{Hash}{Hash}
-  \emph{These values make up our context}\;
-  \Input{A map of generated gradients $G(x,y,z,s)$}
-  \Input{A map of generated values $V(x,y,z,s)$}
-  \emph{These values are our sample point and seed}\;
-  \Input{A point $P$}
-  \Input{A seed $S$}
-  \Output{A value between -1 and 1}
-  \If{$\exists V(P, S)$}{
-    \Return{$V(P, S)$}
-  }
-  \If{$\not \exists G(P, S)$}{
-    $G(P, S) \leftarrow$ \Hash{$P_x, P_y, P_z, S$}
-  }
-\end{algorithmN}
+\paragraph{Grid definition}
+Define a three-dimensional grid,
+where each grid point has associated with it a random gradient vector.
+In order to get a uniform distribution of random vectors,
+I used the sphere point picking method described by Wolfram MathWorld\cite{sphere_point}.
+
+\paragraph{Dot product}
+To determine the noise value of a candidate point,
+determine the grid cell its in.
+For each of the corners of that cell,
+calculate the position vector of the point relative to that corner.
+Take the dot product of this new vector with the gradient of the respective corner.
+
+\paragraph{Interpolation}
+Finally interpolate between all the dot products calculated in the previous step.
+Interpolation if done using the smooth-step function describe in equation \ref{EQ:SMOOTH}
+
+\begin{equation}[EQ:SMOOTH]{Smoothstep function}
+\boxed{f(min, max, x) = min + (max - min)(3 - 2x)x^2}
+\end{equation}

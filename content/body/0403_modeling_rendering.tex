@@ -9,7 +9,7 @@ we need to know its visual properties.
 The best way to represent this is by sampling a series of points on the object's surface.
 If we group the visual properties of these points together,
 we get vertices.
-When talking about these properties in this contex,
+When talking about these properties in this context,
 we call them vertex attributes\cite{game_engine_arch}.
 There are many attributes that are typically included,
 but in this engine we only use the following
@@ -51,7 +51,7 @@ it might make more sense to use a diffuse color attribute,
 since all our detail will be generated at the same time as the mesh.
 
 Keeping all this in mind,
-the way we have implemented this is by defining a single \dfn{struct} (code \ref{COD:VERT_STRUCT}).
+the way this is implemented is by defining a single \dfn{struct} (code \ref{COD:VERT_STRUCT}).
 This \dfn{struct} will contain fields for all supported attributes.
 When writing the vertices to an OpenGL buffer,
 unneeded attributes will be skipped and the \ac{vao} will only have the relevant attributes mapped to attribute pointers.
@@ -60,6 +60,57 @@ unneeded attributes will be skipped and the \ac{vao} will only have the relevant
 
 \subsection{Meshes}
 
+A mesh is nothing more than a collection of vertices.
+The vertices can be described in many ways,
+but the most common is to do so by triangles.
+When building a mesh up through triangles,
+you are guaranteed that all faces will be flat,
+since three distinct,
+non-co-linear points always describe a plane.
+
+In OpenGL there are many ways to represent meshes in its state.
+The easiest way is to just have a \ac{vbo} with all vertices in the correct order.
+This way quite inefficient though,
+since any vertex that is shared among multiple faces will appear multiple times in the buffer,
+taking up valuable space in memory.
+
+\begin{equation}[EQ:VBO]{Example of a mesh described using only vertices in a VBO}
+\boxed{VBO = \{ V_0, V_1, V_2, V_1, V_3, V_2, \dots \}}
+\end{equation}
+
+Another way that is very useful to represent arbitrary 3D shapes,
+is by storing all unique vertices in the \ac{vbo},
+and then using an \ac{ebo} to index into that buffer.
+
+\begin{equation}[EQ:VBO_EBO]{Example of a mesh described using unique vertices and the indices}
+  \boxed{
+    \begin{matrix}
+      VBO = \{ V_0, V_1, V_2, V_3, \dots \} \\
+      EBO = \{ 0, 1, 2, 1, 3, 2, \dots \}
+    \end{matrix}
+  }
+\end{equation}
+
+\subsubsection{Mesh files}
+
+One important thing to consider is how to store meshes on disk,
+since their representation in memory can vary quite a bit.
+Luckily there are many file formats to store mesh data.
+One such format,
+and the one I decided to implement a parser for,
+is Wavefront OBJ.
+The two main reasons are that it is a text based format,
+making parsing it slightly easier than if it were binary,
+and the fact that it is an open format,
+making the specification very accessible.
+
+The way the format works is that first it defines a set of vectors.
+There are three types of vectors I implemented:
+position vectors, texture coordinates, and normal vectors.
+Then once all these vectors are defined,
+all the surface faces get defined by indexing the vectors and combining them.
+Since this format has support for face shapes other than triangles,
+it is important to have mesh triangulation as part of the modeling workflow.
 
 \subsubsection{Procedural mesh generation}
 
@@ -68,3 +119,10 @@ unneeded attributes will be skipped and the \ac{vao} will only have the relevant
 % Hard edge normal calculation
 % Interpolated normal calculation
 % Vertex transformations based on functions
+
+Sometimes it is desirable to render shapes that aren't modeled beforehand.
+In this document I will refer to the creation of those shapes as procedural mesh generation.
+In this project this process takes place in two steps,
+first a base mesh is generated,
+and then certain transformations are applied to every vertex in the mesh to reach a new shape.
+I explain this process in more detail in section \ref{SEC:PROCEDURAL}

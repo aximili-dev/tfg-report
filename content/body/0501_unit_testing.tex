@@ -5,3 +5,19 @@
 % Actual OpenGL code hard to test since it needs a context
 % Context keeps state making isolated tests hard
 % Importance of seperation logic code from interface code
+
+To write the unit tests I used the \texttt{fiveam} library.
+It's a very simple framework,
+which was important to me since I didn't want to spend a lot of time setting up a complex testing framework.
+Test suites in \texttt{fiveam} work very similar to Common Lisp packages,
+first you define a suit,
+and when you want to write tests for that suite,
+you first declare that you are in that suite\cite{fiveam}.
+
+One part where unit tests came in very handy was when parsing Wavefront OBJ files.
+Since a mesh gets broken down into very minimal pieces,
+(position vectors, texture coordinates, normal vectors and faces,
+the parsers for those elements turned out very small as well.
+By writing individual unit tests for each of those elements,
+and proving that those were correct,
+I could be quite certain that the final complete parser would be as well.
