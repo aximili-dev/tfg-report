@@ -2,14 +2,14 @@ A graphics library is a collection of abstractions,
 which allow developers to make use the capabilities of graphics hardware,
 such as graphics cards.
 Many such libraries exist,
-ranging from low level \acs{api} that only offer rendering capabilities,
+ranging from low level \ac{api}s that only offer rendering capabilities,
 to higher level ones that provide additional functionality.
 To provide one example of a high level library,
 % TODO: cite
 BGFX is a ``cross-platform, graphics API agnostic rendering library''.
-Graphics API agnostic means that it targets many low level graphics \acs{api}.
+Graphics API agnostic means that it targets many low level graphics \ac{api}s.
 
-Most of these libraries and \acs{api} are implemented for many programming languages,
+Most of these libraries and \ac{api}s are implemented for many programming languages,
 and when they aren't,
 bindings are usually available.
 In the case of Common Lisp however,
@@ -43,6 +43,8 @@ showcase this with the most simple example program possible,
 rendering a single triangle.
 The program has been broken down with explanations for each part.
 This shows why an engine with appropriate abstractions is an absolute necessity.
+
+The final result of all this code can be seen in \figref{FIG:EXAMPLE_1}.
 
 % Global variables
 \LispCode[COD:GLINTRO_1]{Basic OpenGL example \textemdash Global variables for 3D mesh and shader code}{These variables contain our mesh information, and our vertex shader code. They are not included fully here because their length would be substantial.}{gl-basic-example.lisp}{1}{7}{1}

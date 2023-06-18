@@ -30,14 +30,14 @@ I used the sphere point picking method described by Wolfram MathWorld\cite{spher
 
 \paragraph{Dot product}
 To determine the noise value of a candidate point,
-determine the grid cell its in.
+determine the grid cell it lies in.
 For each of the corners of that cell,
 calculate the position vector of the point relative to that corner.
 Take the dot product of this new vector with the gradient of the respective corner.
 
 \paragraph{Interpolation}
 Finally interpolate between all the dot products calculated in the previous step.
-Interpolation if done using the smooth-step function describe in equation \ref{EQ:SMOOTH}
+Interpolation if done using the smooth-step function described in equation \ref{EQ:SMOOTH}
 
 \begin{equation}[EQ:SMOOTH]{Smoothstep function}
 \boxed{f(min, max, x) = min + (max - min)(3 - 2x)x^2}

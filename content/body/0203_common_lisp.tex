@@ -35,7 +35,7 @@ is by using an \ac{ide} capable of linking code you write in files,
 with an existing \ac{repl} session.
 The benefits of the second approach are that you get to have a static copy of the code you write,
 which is beneficial for source control and collaboration.
-The setup used for this project will be explained in more detail in \secref{SEC:DEV_ENV}
+The setup used for this project will be explained in more detail in \secref{SEC:DEV_ENV}.
 
 \LispCode[COD:REPL_1]{REPL example \textemdash Code execution}{Some basic lisp functions being executed. In this case the \texttt{+} and \texttt{nth} functions}{repl-1.lisp}{}{}{}
 
@@ -50,6 +50,12 @@ and see the changes take effect without having to restart the entire program.
 This is also very useful for debugging,
 since whenever an error is encountered,
 the lisp debugger will allow you to fix it while execution is paused.
+
+Another way this interactive development experience turned out useful for this project,
+is that rendering code could be modified while the application is running.
+This isn't always helpful since certain code in the engine only gets run once,
+but for code that is run every frame,
+it was possible to get immediate feedback without having to restart the application.
 
 \subsection{Homoiconicity}
 
@@ -72,6 +78,6 @@ This makes writing macros very easy.
 
 \subsection{Computer Graphics history}
 
-\begin{itemize}
-\item If I can find more detailed info about it
-\end{itemize}
+A final interesting point about Common Lisp is that it has a rich history in Computer Graphics.
+Lisp machines build in the 1980s by companies like Symbolics were some of the first capable of real time video I/O,
+and the first to produce HDTV video\cite{symbolics}.

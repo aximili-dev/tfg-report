@@ -9,7 +9,7 @@ the Phong reflection model was implemented.
 It was developed by Bui Tuong Phong in 1975\cite{phong}.
 It's an empirical model of local illumination.
 It describes surface reflections as the combination of diffuse reflection,
-which fall off gradually,
+which falls off gradually,
 and specular reflection,
 which causes small highlights.
 It also introduces a third \textit{ambient} term,
@@ -17,8 +17,7 @@ to account for light that is scattered about an entire scene.
 
 The way it's implemented in this project is using an OpenGL shader program.
 The first stage, the vertex shader,
-runs for every vertex in the mesh and takes care of transforming it from world space,
-to screen space.
+runs for every vertex in the mesh and takes care of transforming it from world space to screen space.
 The second stage, the fragment shader,
 takes the transformed vertex and shades it.
 It calculates the three terms of the Phong model separately,
@@ -46,3 +45,14 @@ An example is shown in figure \ref{FIG:PHONG}
   \subfigure[SBFIG:CONTAINER_SPECULAR]{Specular map}{\image{}{3cm}{container.specular}}
   \subfigure[SBFIG:CONTAINER_RENDER]{Rendered mesh}{\image{}{3cm}{container_render}}
 \end{figure}
+
+Other types of textures can be mapped to the meshes for even more detail.
+Normal maps,
+displacement maps and bump maps can create the illusion of higher detail geometry,
+without actually increasing the number of vertices.
+Bump maps give the impression of small raised details on a surface,
+making it look less flat.
+Normal maps improve upon bump maps,
+by giving raised details an angle relative to the surface they're on.
+Displacement maps create higher detail by transorming the underlying mesh.
+These types of texture maps and their corresponding lighting calculations are outside of the scope of this project.

@@ -12,7 +12,7 @@ but also showcased.
 
 The most basic 3D scene possible.
 This example showcases that the \texttt{with-graphics} macro works properly,
-and the OpenGL has been successfully initialized.
+and the OpenGL context has been successfully initialized.
 
 This example initializes the graphics context,
 and hard-codes the mesh data for a triangle.
@@ -33,7 +33,7 @@ It also adds some lights to the scene,
 though only in the sense that it sends values to the shader program.
 Finally it renders the loaded models in the scene.
 The final result is shown in \figref{FIG:EXAMPLE_2}.
-This example also shows of the debug mode,
+This example also shows off the debug mode,
 which renders meshes using lines instead of triangles.
 
 \begin{figure}[Exploratory tests \textemdash Meshes]{FIG:EXAMPLE_2}{A render of multiple meshes with different textures. There are also some invisible lights in the scene causing diffuse and specular lighting. The multiple cubes are actually only one entity, rendered multiple times with a different transform applied to it.}
@@ -43,7 +43,16 @@ which renders meshes using lines instead of triangles.
 
 \subsection{Natural terrain using fractal Perlin noise}
 
-Shown in \figref{FIG:PERLIN}.
+This example first creates a plane mesh build from triangle strips.
+Then for each of the vertices it samples six different frequencies of Perlin noise,
+and scales the results inversely proportional to the sampled frequency.
+For example the values that are sampled at one-fifth the frequency,
+(by multiplying the sample point position by 0.2),
+are multiplied by five.
+The final results for each point get added up,
+some more transformations are applied,
+and the resulting value is used to modify the height of vertex as well as to choose its color.
+An example of a resulting mesh is shown in \figref{FIG:PERLIN}.
 
 %\subsection{Marching cubes}
 

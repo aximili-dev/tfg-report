@@ -19,6 +19,12 @@ With it,
 you can describe how a lisp project is organized,
 and how it should be built and loaded.
 
+Together,
+Quicklisp and \ac{asdf} take care of downloading necessary dependencies,
+loading their packages so that their functions can be used,
+building and running the software that you write,
+and finally they can compile and link a standalone binary that can be run its supported platforms.
+
 \subsection{Integrated Development Environment}
 
 As mentioned in section \ref{SEC:CL},
@@ -26,7 +32,7 @@ Common Lisp is developed against a \ac{repl}.
 For this purpose,
 I set up the Emacs editor to act as an \ac{ide}.
 Emacs is well-suited for Common Lisp development,
-since it is build with a different flavor of lisp,
+since it is built with a different flavor of lisp,
 Emacs Lisp.
 Apart from that,
 there exist several packages for Emacs that integrate the editor with the \ac{repl}.

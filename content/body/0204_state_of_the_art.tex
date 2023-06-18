@@ -9,13 +9,13 @@ there are a few software packages that have to be mentioned.
 % TODO: Rethink order, maybe move to individual files
 \subsection{cl-opengl}
 
-\texttt{cl-opengl} is a common lisp library that provides bindings the OpenGL graphics API.
+\texttt{cl-opengl} is a Common Lisp library that provides bindings for the OpenGL graphics API.
 The way it achieves this is using the \ac{cffi}.
 Besides offering low level bindings directly the OpenGL \ac{api},
 this library also creates its own interface on top of it.
 This higher level interface is very desirable,
 since it prevents us from having to call foreign functions directly,
-which generally means working with dynamic and memory directly\cite{cffi}.
+which generally means working with dynamic memory directly\cite{cffi}.
 
 This library also includes bindings to the \ac{glut} \ac{api},
 however in this project \texttt{cl-glfw} is used instead,
@@ -27,7 +27,7 @@ The reason for this is that \ac{glfw} gives full control of the render loop to t
 \texttt{kons-9} is somewhat unique in this list because it is a fairly new project.
 It's self described as falling under the category of 3D digital content creation tool.
 It provides a flexible and extensible system to create abstract and arbitrary 3D visualizations.
-Its unique feature is that it combines the \ac{repl}-driven development workflow provided by Common Lisp with the visual tools of a 3D graphics system.
+Its unique feature is that it combines the \ac{repl}-driven development workflow provided by Common Lisp with the visual tools of a 3D graphics system\cite{kons9}.
 Some examples of visuals generated using \texttt{kons-9} are shown in figure \ref{FIG:KONS9}
 
 \begin{figure}[Kons-9 example]{FIG:KONS9}{Some visuals generated using kons-9}
@@ -41,12 +41,12 @@ Some examples of visuals generated using \texttt{kons-9} are shown in figure \re
 Trial is a game engine for Common Lisp.
 It's structured as a loose connection of components that can be composed in any combinations,
 depending on the requirements of any particular game.
-Trial stands out in the Common Lisp because it has been used to develop and publish full-fledged video games\cite{trial}.
+Trial stands out in the Common Lisp ecosystem because it has been used to develop and publish full-fledged video games\cite{trial}.
 
 \subsection{clinch}
 
 % TODO: Find out how to properly quote
-Clinch purports itself as \textit{``a simple, yet powerful 3D game engine for Lisp''}. It is written on the same \texttt{cl-opengl} library as this project, although its feature\-set is quite more extensive. The main features it offers that are not present in this engine are the following\cite{clinch}:
+Clinch purports itself as \textit{``a simple, yet powerful 3D game engine for Lisp''}. It is written on the same \texttt{cl-opengl} library as this project, although its feature-set is quite more extensive. The main features it offers that are not present in this engine are the following\cite{clinch}:
 
 \begin{itemize}
 \item \textbf{3D physics with joints and motors}
@@ -61,5 +61,5 @@ however no changes have been uploaded since 2017 as of the writing of this text.
 
 Besides \texttt{cl-opengl},
 there are some other libraries acting as wrappers by way of \ac{cffi} bindings.
-Examples include bindings for Horde3D\cite{horde3d} and Ogre\cite{okra}.
+Examples include bindings for Horde3D\cite{horde} and Ogre\cite{okra}.
 Most of these libraries have been unmaintained for many years though.

@@ -8,15 +8,15 @@
 
 To write the unit tests I used the \texttt{fiveam} library.
 It's a very simple framework,
-which was important to me since I didn't want to spend a lot of time setting up a complex testing framework.
+which was important to me since I did not want to spend a lot of time setting up a complex testing framework.
 Test suites in \texttt{fiveam} work very similar to Common Lisp packages,
-first you define a suit,
+first you define a suite using the \texttt{def-suite} macro,
 and when you want to write tests for that suite,
-you first declare that you are in that suite\cite{fiveam}.
+you first declare that you are in that suite by using the \texttt{in-suite} macro\cite{fiveam}.
 
 One part where unit tests came in very handy was when parsing Wavefront OBJ files.
 Since a mesh gets broken down into very minimal pieces,
-(position vectors, texture coordinates, normal vectors and faces,
+(position vectors, texture coordinates, normal vectors and faces),
 the parsers for those elements turned out very small as well.
 By writing individual unit tests for each of those elements,
 and proving that those were correct,

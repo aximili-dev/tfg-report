@@ -28,6 +28,13 @@ etc.
 This object is then exposed in the scope of the expanded macro,
 to allow any program to interact with it.
 
+This object also has many methods which abstract away some of the complexities of working with OpenGL and GLFW.
+For example,
+creating and assigning GLFW callbacks is a multiple step process,
+because of the nature of the CFFI implementation.
+The \texttt{graphics-set-key-callback} method and its siblings,
+take care of this complexity for the developer.
+
 \paragraph{OS Callbacks}
 
 GLFW is used to setup some basic callbacks to integrate with the \ac{os}.
@@ -48,4 +55,20 @@ The macro allows you to create a contained scope where that array exists,
 so you can use it to move data to a buffer or do other manipulations,
 and afterwards frees the memory that was allocated to it.
 
-% \subsection{OpenGL error handling}
+\subsection{OpenGL error handling}
+
+Because of the state-machine-like nature of OpenGL,
+in many cases when it encounters an error it won't throw an exception or return an error code like in other languages or libraries.
+Rather,
+the state is modified to reflect the error,
+and it is the developer's responsability to check the state for any errors.
+
+When programming shaders,
+it is very easy to slip up and make a mistake.
+Since the result of a shader that couldn't compile is usually just a blank screen,
+utilities for error-checking are very helpful.
+
+The \texttt{gl-assert} macro takes care of querying the current OpenGL state,
+and in case it detects an error,
+queries the respective error and triggers a Common Lisp error,
+that can be inspected and analyzed in the debugger.
