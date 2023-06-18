@@ -4,6 +4,7 @@
 % - First language used for computer rendering
 
 \label{SEC:CL}
+\index{Common Lisp}
 
 Common Lisp exists as a dialect in a large family of Lisp programming languages.
 It is important to note that Common Lisp itself is not a language implementation,
@@ -18,6 +19,8 @@ Note that for the rest of this document,
 Common Lisp and lisp will be used interchangeably.
 
 \subsection{REPL driven development}
+
+\index{REPL}
 
 The first thing that stands out from Common Lisp is that there is no real concept of ``program''.
 Rather when you start the interpreter,
@@ -37,9 +40,9 @@ The benefits of the second approach are that you get to have a static copy of th
 which is beneficial for source control and collaboration.
 The setup used for this project will be explained in more detail in \secref{SEC:DEV_ENV}.
 
-\LispCode[COD:REPL_1]{REPL example \textemdash Code execution}{Some basic lisp functions being executed. In this case the \texttt{+} and \texttt{nth} functions}{repl-1.lisp}{}{}{}
+\LispCode[COD:REPL_1]{REPL example \textemdash\, Code execution}{Some basic lisp functions being executed. In this case the \texttt{+} and \texttt{nth} functions}{repl-1.lisp}{}{}{}
 
-\LispCode[COD:REPL_2]{REPL example \textemdash Function definition}{This function definition would be lost if the proper steps aren't taken before closing the REPL session.}{repl-2.lisp}{}{}{}
+\LispCode[COD:REPL_2]{REPL example \textemdash\, Function definition}{This function definition would be lost if the proper steps aren't taken before closing the REPL session.}{repl-2.lisp}{}{}{}
 
 One major consequence of how the Common Lisp \ac{repl} works,
 is that you get code reloading for free.

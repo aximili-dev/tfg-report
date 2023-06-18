@@ -1,5 +1,7 @@
+\index{Rendering}
+
 A graphics library is a collection of abstractions,
-which allow developers to make use the capabilities of graphics hardware,
+which allow developers to make use the capabilities of rendering hardware,
 such as graphics cards.
 Many such libraries exist,
 ranging from low level \ac{api}s that only offer rendering capabilities,
@@ -18,6 +20,8 @@ Some others exist,
 and those will be touched upon in section \ref{SEC:SOTA}.
 
 \subsection{OpenGL}
+
+\index{OpenGL}
 
 OpenGL\cite{khronos} is a cross-language,
 cross-platform graphics API for rendering vector graphics.
@@ -47,19 +51,19 @@ This shows why an engine with appropriate abstractions is an absolute necessity.
 The final result of all this code can be seen in \figref{FIG:EXAMPLE_1}.
 
 % Global variables
-\LispCode[COD:GLINTRO_1]{Basic OpenGL example \textemdash Global variables for 3D mesh and shader code}{These variables contain our mesh information, and our vertex shader code. They are not included fully here because their length would be substantial.}{gl-basic-example.lisp}{1}{7}{1}
+\LispCode[COD:GLINTRO_1]{Basic OpenGL example \textemdash\, Global variables for 3D mesh and shader code}{These variables contain our mesh information, and our vertex shader code. They are not included fully here because their length would be substantial.}{gl-basic-example.lisp}{1}{7}{1}
 
 % glfwInit and glfwCreateWindow
-\LispCode[COD:GLINTRO_2]{Basic OpenGL example \textemdash Initialize OpenGL and create objects}{The GLFW functions take care of interacting with the OS to create a new window, a new OpenGL context, and link them. The rest of the variables are the minimum OpenGL objects we need to render anything to the screen.}{gl-basic-example.lisp}{9}{27}{9}
+\LispCode[COD:GLINTRO_2]{Basic OpenGL example \textemdash\, Initialize OpenGL and create objects}{The GLFW functions take care of interacting with the OS to create a new window, a new OpenGL context, and link them. The rest of the variables are the minimum OpenGL objects we need to render anything to the screen.}{gl-basic-example.lisp}{9}{27}{9}
 
 % Shader compilation and linking
-\LispCode[COD:GLINTRO_3]{Basic OpenGL example \textemdash Shader compilation and linking}{These OpenGL functions load shader source into memory and compile the shaders so that the GPU can execute them. Then the shaders get linked together in a shader program that the GPU will use as a rendering pipeline.}{gl-basic-example.lisp}{29}{39}{29}
+\LispCode[COD:GLINTRO_3]{Basic OpenGL example \textemdash\, Shader compilation and linking}{These OpenGL functions load shader source into memory and compile the shaders so that the GPU can execute them. Then the shaders get linked together in a shader program that the GPU will use as a rendering pipeline.}{gl-basic-example.lisp}{29}{39}{29}
 
 % Setting up vao
-\LispCode[COD:GLINTRO_4]{Basic OpenGL example \textemdash Vertex array spec}{Here we load all the mesh data into OpenGL buffers and we specify its structure. The functions on lines 53 and 54 take care of mapping the different vertex attributes onto the relevant shader inputs.}{gl-basic-example.lisp}{41}{54}{41}
+\LispCode[COD:GLINTRO_4]{Basic OpenGL example \textemdash\, Vertex array spec}{Here we load all the mesh data into OpenGL buffers and we specify its structure. The functions on lines 53 and 54 take care of mapping the different vertex attributes onto the relevant shader inputs.}{gl-basic-example.lisp}{41}{54}{41}
 
 % Render Loop
-\LispCode[COD:GLINTRO_5]{Basic OpenGL example \textemdash Render loop}{The actual rendering code. Of these lines, the only part that actually instructs OpenGL to render is the function call on line 65. The other functions only take care of getting the OpenGL context in the proper state. The final two lines instruct that the OS to draw the rendered framebuffer the window.}{gl-basic-example.lisp}{56}{74}{56}
+\LispCode[COD:GLINTRO_5]{Basic OpenGL example \textemdash\, Render loop}{The actual rendering code. Of these lines, the only part that actually instructs OpenGL to render is the function call on line 65. The other functions only take care of getting the OpenGL context in the proper state. The final two lines instruct that the OS to draw the rendered framebuffer the window.}{gl-basic-example.lisp}{56}{74}{56}
 
 % Cleanup
-\LispCode[COD:GLINTRO_6]{Basic OpenGL example \textemdash Cleanup}{These final lines free up the OpenGL objects that were created at the beginning of the program.}{gl-basic-example.lisp}{76}{79}{76}
+\LispCode[COD:GLINTRO_6]{Basic OpenGL example \textemdash\, Cleanup}{These final lines free up the OpenGL objects that were created at the beginning of the program.}{gl-basic-example.lisp}{76}{79}{76}
