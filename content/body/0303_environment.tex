@@ -40,7 +40,7 @@ I chose to install SLY,
 because of its many useful debugging features.
 I've included my full Emacs configuration in appendix \ref{APP:EMACS} for reference.
 
-\subsubsection{SLY}
+\subsection{SLY}
 
 The helpfulness of SLY is easily understated,
 so this section is dedicated to explaining some of its features in detail\cite{sly}.
@@ -51,6 +51,15 @@ The default \ac{repl} provided by most Lisp implementations is very bare.
 SLY provides a full-featured \ac{cli}.
 The additional functionality includes completion,
 reverse i-search and bash-style keyboard navigation.
+
+\paragraph{Code reloading}
+
+As mentioned in \secref{SEC:CL},
+Common Lisp supports reloading code during the execution of a program.
+SLY makes this extra easy by providing an Emacs command,
+\texttt{sly-compile-defun} (bound to \texttt{C-c C-c},
+which will compile and load code currently under the cursor.
+There are many other commands for loading Lisp code that are explained in detail in the SLY manual\cite{sly_manual}.
 
 \paragraph{Debugger}
 
