@@ -1,14 +1,12 @@
+
+\label{SEC:SOTA}
+
 The previous sections of this chapter give context about the current state of the tools we're using.
 This next section discusses existing work at the intersection of Graphics Engines, OpenGL and Common Lisp.
 In this small slice,
 there are a few software packages that have to be mentioned.
 
 % TODO: Rethink order, maybe move to individual files
-
-\subsection{kons-9}
-
-Repl driven modeling
-
 \subsection{cl-opengl}
 
 \texttt{cl-opengl} is a common lisp library that provides bindings the OpenGL graphics API.
@@ -24,6 +22,27 @@ however in this project \texttt{cl-glfw} is used instead,
 which provides bindings to \ac{glfw}.
 The reason for this is that \ac{glfw} gives full control of the render loop to the developer.
 
+\subsection{kons-9}
+
+\texttt{kons-9} is somewhat unique in this list because it is a fairly new project.
+It's self described as falling under the category of 3D digital content creation tool.
+It provides a flexible and extensible system to create abstract and arbitrary 3D visualizations.
+Its unique feature is that it combines the \ac{repl}-driven development workflow provided by Common Lisp with the visual tools of a 3D graphics system.
+Some examples of visuals generated using \texttt{kons-9} are shown in figure \ref{FIG:KONS9}
+
+\begin{figure}[Kons-9 example]{FIG:KONS9}{Some visuals generated using kons-9}
+  \subfigure[SBFIG:KONS9_1]{A voxel sphere}{\image{0.4\textwidth}{}{kons-9_1}}
+  \subfigure[SBFIG:KONS9_2]{Bezier curves in the shape of a butterfly}{\image{0.4\textwidth}{}{kons-9_2}}
+  \subfigure[SBFIG:KONS9_3]{Procedural organic growth}{\image{0.4\textwidth}{}{kons-9_3}}
+\end{figure}
+
+\subsection{Trial}
+
+Trial is a game engine for Common Lisp.
+It's structured as a loose connection of components that can be composed in any combinations,
+depending on the requirements of any particular game.
+Trial stands out in the Common Lisp because it has been used to develop and publish full-fledged video games\cite{trial}.
+
 \subsection{clinch}
 
 % TODO: Find out how to properly quote
@@ -38,14 +57,9 @@ Clinch purports itself as \textit{``a simple, yet powerful 3D game engine for Li
 The library's homepage mentions that the project is still under development,
 however no changes have been uploaded since 2017 as of the writing of this text.
 
-\subsection{cl-horde3d}
+\subsection{Wrapper libraries}
 
-Another library acting as a wrapper by way of \ac{cffi} bindings.
-In this case the underlying \ac{api} is from the Horde3D library\cite{horde3d}.
-At the time of writing,
-no updates have been provided for this library since 2013.
-
-\subsection{Trial}
-
-Game engine
-
+Besides \texttt{cl-opengl},
+there are some other libraries acting as wrappers by way of \ac{cffi} bindings.
+Examples include bindings for Horde3D\cite{horde3d} and Ogre\cite{okra}.
+Most of these libraries have been unmaintained for many years though.

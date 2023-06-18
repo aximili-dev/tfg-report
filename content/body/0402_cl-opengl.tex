@@ -3,3 +3,49 @@
 % Challenges found
 % - Lots of raw binary data manipulation, hard to make pretty
 % - OpenGL errors, solved by creating some lisp macros and functions
+
+The integration of OpenGL could be considered the core of the engine architecture.
+
+\subsection{with-graphics macro}
+
+The finished engine provides a macro called \texttt{with-graphics},
+that takes care of the following steps.
+
+\paragraph{OpenGL and GLFW initialization}
+
+GLFW is used to create an operating system window,
+and an OpenGL context to go with it.
+Context version 4.5 is specified to enable modern OpenGL features like rendering and compute shaders.
+
+\paragraph{Graphics class}
+
+A graphics object is created to hold all the state relating to the engine.
+This includes the window size,
+current keyboard state,
+global objects like the debug font,
+whether debug mode is enabled,
+etc.
+This object is then exposed in the scope of the expanded macro,
+to allow any program to interact with it.
+
+\paragraph{OS Callbacks}
+
+GLFW is used to setup some basic callbacks to integrate with the \ac{os}.
+The most important is the resize callback,
+which updates the window size in the graphics object.
+Another important one is setting up a keyboard callback to quit when the escape key is pressed.
+This can be overridden by a program using the macro,
+but before this is done,
+it's an easy way to quit a program during the development phase.
+
+\subsection{Data structures and buffers}
+
+Another small but important aspect of integrating OpenGL is how to move data between Common Lisp and OpenGL buffers.
+For that purpose the function \texttt{make-gl-array} and the macro \texttt{with-gl-array} were written.
+The function takes care of allocating memory for a C-style array,
+and copying data from a lisp array to it.
+The macro allows you to create a contained scope where that array exists,
+so you can use it to move data to a buffer or do other manipulations,
+and afterwards frees the memory that was allocated to it.
+
+% \subsection{OpenGL error handling}

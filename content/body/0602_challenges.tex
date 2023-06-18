@@ -2,3 +2,68 @@
 % Lack of common lisp libraries for many needed functionalities, reinvent the wheel or use and old and broken one
 % Difficulty of debugging failing graphics, just change things until something makes sense
 % - Maybe create some wonky mesh errors on purpose
+
+\subsection{Project scope}
+
+For a long time at the start of this project,
+the scope was quite undefined.
+I had many ideas for different features I wanted to implement,
+but no real structure or plan.
+As a consequence,
+the scope grew unbounded for some time.
+There were ideas for implementing physics models,
+a sound system,
+an \ac{ecs}, etc.
+This meant that the project kept growing,
+without ever really getting closer to being done.
+
+At some point I decided to completely stop with development,
+and actually define a concrete goal and the steps to get there.
+This ended up being one of the most challenging aspects of the project,
+having to reconcile countless ideas with the fact the project had to actually finish at some point.
+
+\subsection{Common Lisp ecosystem}
+
+Another challenge that turned out quite tough,
+was dealing with the current state of the Common Lisp ecosystem.
+Due to the it having lost popularity over the last few decades,
+working with the language itself is already quite a challenge.
+Going by the 2022 Stack Overflow Developer survey,
+less then 2\% of developers use Lisp.
+Searching the internet for answers to certain questions then,
+means you will be less likely to find them.
+
+Another problem that arises from the current state of the ecosystem,
+is the distinct lack of libraries.
+Compared to a package manager like NPM for JavaScript,
+which in 2019 reported having over 1.3 million packages published\cite{npm},
+Quicklisp reports a number just over 15000\cite{quicklisp}.
+
+When looking for a solution to a common problem,
+like vector and matrix math,
+there usually exists only a single,
+actively maintained library that provides a working solution.
+In many cases however,
+there might not be a library even.
+As an example,
+the functionality to import Wavefront OBJ files is provided by the \texttt{classimp} library,
+a \ac{cffi} library providing bindings to the \texttt{Assimp} library.
+I found working with this library very unwieldy,
+and since I could not find any other solution in the Quicklisp registry,
+I ended up writing my own.
+
+\subsection{Debugging graphics applications}
+
+One final challenge that's worth mentioning is debugging graphics applications.
+Sometimes a small change suddenly causes a program to not start anymore,
+or crazy graphical glitches.
+Because of the complexity of the underlying software,
+and the error system of OpenGL,
+at times it could be difficult to determine the cause of such errors.
+An example is shown in \figref{FIG:GLITCH_TRI_STRIP}.
+
+\begin{figure}[Graphical glitch \textemdash Triangle strip]{FIG:GLITCH_TRI_STRIP}{A graphical glitch caused by a mathematical error when building the initial triangle strip for this mesh. The only way to find the error in this case was reading the code multiple times until the error was caught.}
+  \image{0.5\textwidth}{}{glitch_triangle_strip}
+\end{figure}
+
+  

@@ -3,3 +3,48 @@
 % - Triangle
 % - Meshes with lighting
 % - Perlin and procedural meshes
+
+The main way most of the code got tested was by writing small programs and prototypes.
+This way any implemented functionality could not only be verified,
+but also showcased.
+
+\subsection{Simple triangle}
+
+The most basic 3D scene possible.
+This example showcases that the \texttt{with-graphics} macro works properly,
+and the OpenGL has been successfully initialized.
+
+This example initializes the graphics context,
+and hard-codes the mesh data for a triangle.
+Furthermore it performs all the steps of getting the data into OpenGL buffers,
+configuring the \ac{vao},
+and calling the necessary drawing functions manually.
+The final result can be seen in \figref{FIG:EXAMPLE_1}.
+
+\begin{figure}[Exploratory tests \textemdash Triangle]{FIG:EXAMPLE_1}{A render of a triangle}
+  \image{0.5\textwidth}{}{examples_01}
+\end{figure}
+
+\subsection{Loading and rendering textured meshes}
+
+This example improves upon the previous one by loading in 3D models from disk,
+and assigning them to entities that the engine can recognize.
+It also adds some lights to the scene,
+though only in the sense that it sends values to the shader program.
+Finally it renders the loaded models in the scene.
+The final result is shown in \figref{FIG:EXAMPLE_2}.
+This example also shows of the debug mode,
+which renders meshes using lines instead of triangles.
+
+\begin{figure}[Exploratory tests \textemdash Meshes]{FIG:EXAMPLE_2}{A render of multiple meshes with different textures. There are also some invisible lights in the scene causing diffuse and specular lighting. The multiple cubes are actually only one entity, rendered multiple times with a different transform applied to it.}
+  \subfigure[SBFIG:EXAMPLE_2_FILL]{Normal mode}{\image{0.4\textwidth}{}{examples_02}}
+  \subfigure[SBFIG:EXAMPLE_2_DEBUG]{Debug mode}{\image{0.4\textwidth}{}{examples_02_debug}}
+\end{figure}
+
+\subsection{Natural terrain using fractal Perlin noise}
+
+Shown in \figref{FIG:PERLIN}.
+
+%\subsection{Marching cubes}
+
+%Only if I implement it

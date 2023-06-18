@@ -27,8 +27,8 @@
 \abstractfile{content/abstract/english}
 \ackfile{content/thanks}
 
-\palabrasclave{Videojuegos}
-\keywords{Videogames}
+\palabrasclave{Common Lisp, Motor gráfico, Programación de gráficos, OpenGL Videojuegos}
+\keywords{Common Lisp, Graphics engine, Graphics programming, OpenGL, Videogames}
 
 \coverdata
 {
@@ -48,6 +48,11 @@
 
 \usetikzlibrary{er}
 
+\newcommand{\secref}[1]{\hyperref[#1]{section} \ref{#1}}
+\newcommand{\Secref}[1]{\hyperref[#1]{Section} \ref{#1}}
+\newcommand{\figref}[1]{\hyperref[#1]{figure} \ref{#1}}
+\newcommand{\Figref}[1]{\hyperref[#1]{Figure} \ref{#1}}
+
 \begin{document}
 
 \input{content/glossary/acronyms}
@@ -55,7 +60,7 @@
 
 \chapter{Introduction}{content/body/0100_introduction}                              % Done
   \section{Project Purpose}{content/body/0101_purpose}                              % Done
-  %\section{Motivation}{content/body/0104_motivation}                                % Medium
+  \section{Motivation}{content/body/0104_motivation}                                % Medium
   \section{Project Scope}{content/body/0102_scope}                                  % Done
   \section{Organization}{content/body/0103_organization}                            % Done (Revise)
 
@@ -85,11 +90,11 @@
 
 \chapter{Discussion and Analysis}{content/body/0600_discussion}                     %
   \section{Results Interpretation}{content/body/0601_results}                       %
+  \section{Summary of Findings}{content/body/0701_summary}                          %
   \section{Challenges and Limitations}{content/body/0602_challenges}                %
   \section{Implications and Applications}{content/body/0603_applications}           %
   
 \chapter{Conclusion and Future work}{content/body/0700_conclusions}                 %
-  \section{Summary of Findings}{content/body/0701_summary}                          %
   \section{Recommendations for Future Projects}{content/body/0702_recommendations}  %
 
 \appendix

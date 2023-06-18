@@ -33,3 +33,31 @@ there exist several packages for Emacs that integrate the editor with the \ac{re
 I chose to install SLY,
 because of its many useful debugging features.
 I've included my full Emacs configuration in appendix \ref{APP:EMACS} for reference.
+
+\subsubsection{SLY}
+
+The helpfulness of SLY is easily understated,
+so this section is dedicated to explaining some of its features in detail\cite{sly}.
+
+\paragraph{Full-featured REPL}
+
+The default \ac{repl} provided by most Lisp implementations is very bare.
+SLY provides a full-featured \ac{cli}.
+The additional functionality includes completion,
+reverse i-search and bash-style keyboard navigation.
+
+\paragraph{Debugger}
+
+Whenever an error is encountered in a Lisp program,
+execution will pause and a debugger will show up in the \ac{repl}.
+SLY improves on this by letting the developer explore the full execution stack,
+inspect and modify variables,
+and evaluate arbitrary Lisp code before continuing or aborting execution.
+
+\paragraph{Stickers}
+
+Stickers are similar to breakpoints in other debuggers,
+but they are set for arbitrary expressions.
+When they are enabled,
+SLY will pause execution after evaluating a marked expression,
+allowing you to inspect the result without having to create intermediary variables.

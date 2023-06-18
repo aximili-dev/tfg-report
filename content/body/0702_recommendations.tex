@@ -1,0 +1,75 @@
+%\begin{itemize}
+%\item Modularize the code more, separate into packages maybe even libraries
+%\item Implement scene management with a scene tree
+%\item Implement a UI toolkit, or integrate an existing one if there is one
+%\item Implement a sound system, have sound sources, sinks and mixers
+%\item Implement rigid body physics, and colliders for different geometries
+%\end{itemize}
+
+\label{SEC:RECOMMENDATIONS}
+
+After having finished the development,
+there are still many areas where improvements are possible.
+There are also many features that could be implemented and integrated into the engine,
+so as to have a more complete feature set.
+
+\subsection{Code refactoring}
+
+Due to the nature of the project lifecycle,
+most of the code has ended up in one shared package.
+Before adding any new features,
+there would be value in splitting the code up into multiple packages,
+maybe even extracting some libraries for some specific cases,
+like the Wavefront OBJ parser.
+This would not only make the current code base more digestible,
+but it would make it easier to expand on the work in the future.
+
+\subsection{Scene management}
+
+The project currently has a hierarchy where meshes belong to models,
+and models belong to entities,
+with each level in this hierarchy being responsible for a different part of the rendering process.
+Entities are located in the scene and can contain a model,
+models can have materials and textures and a mesh,
+and the mesh is just a collection of vertices and indices.
+
+A feature that would allow for more complex scenes would be a scene or world graph,
+wherein entities can be parents or children to other entities.
+This way different components or elements can be composed to create complex objects.
+One consideration for this is that the transforms of entities have to be combined together for any operation that depends on their position, scale or rotation.
+
+\subsection{UI Toolkit}
+
+In the case where a graphics application has to be interactive,
+a UI toolkit goes a long way towards reaching that goal.
+Implementing such a toolkit in this engine would require some work,
+but it would be well worth the effort.
+
+An alternative to implementing such a toolkit from scratch,
+would be integrating an existing library like Alloy.
+It's written in Common Lisp and contains code to interface with OpenGL and GLFW\cite{alloy}.
+
+%\subsection{Sound system}
+
+
+\subsection{Rigid body physics}
+
+Another interesting area for expansion in the current project would be the implementation of a rigid body physics system.
+Graphics rendering is only one aspect of creating an immersive and interactive 3D environment.
+Realistic physics simulations can significantly enhance the overall feel and realism of the scene.
+
+Rigid body physics would allow for the simulation of physical interactions between objects in the scene,
+including factors such as gravity,
+friction,
+and force-induced movement.
+This would bring another layer of realism to the rendered scenes,
+providing a more engaging and interactive experience for the users.
+
+In addition to the physics system,
+a collision detection and response system would be an essential addition.
+Collision systems allow for the detection of interactions between objects in a scene,
+such as when they touch,
+overlap or collide.
+Once a collision is detected,
+appropriate responses such as bouncing or sliding can be simulated,
+adding another level of authenticity to the scene.
