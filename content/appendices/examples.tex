@@ -1,0 +1,135 @@
+\label{APP:EXAMPLES}
+
+This appendix presents the code used in the exploratory tests specified in \secref{SEC:EXAMPLES}.
+
+\section{Triangle}
+
+\label{APP:TRIANGLE}
+
+\LispCode[COD:EXAMPLE_TRI]
+         {Triangle example code \textemdash\, Main function}
+         {Code used in exploratory test to render a triangle}
+         {example-triangle.lisp}
+         {1}{17}{}
+
+\LispCode[COD:EXAMPLE_TRI_SETUP]
+         {Triangle example code \textemdash\, Setup code}
+         {Setup code for \ref{COD:EXAMPLE_TRI}}
+         {example-triangle.lisp}
+         {19}{30}{}
+
+\LispCode[COD:EXAMPLE_TRI_RENDER]
+         {Triangle example code \textemdash\, Render code}
+         {Rendering code for \ref{COD:EXAMPLE_TRI}}
+         {example-triangle.lisp}
+         {32}{44}{}
+
+\CCode[COD:EXAMPLE_TRI_VS]
+      {Triangle example code \textemdash\, Vertex shader}
+      {Vertex shader used in code \ref{COD:EXAMPLE_TRI}}
+      {01-triangle.vert}
+      {}{}{}
+         
+\CCode[COD:EXAMPLE_TRI_FS]
+      {Triangle example code \textemdash\, Fragment shader}
+      {Fragment shader used in code \ref{COD:EXAMPLE_TRI}}
+      {01-triangle.frag}
+      {}{}{}
+         
+\clearpage
+\section{Meshes}
+
+\label{APP:MESHES}
+
+\LispCode[COD:EXAMPLE_MESH]
+         {Entity example code \textemdash\, Main function}
+         {Code used in exploratory test to load entity models from disk,
+           and render them using the Phong reflection model}
+         {example-meshes.lisp}
+         {1}{26}{}
+
+\LispCode[COD:EXAMPLE_MESH_SETUP]
+         {Entity example code \textemdash\, Lighting setup code}
+         {Lighting setup code for code \ref{COD:EXAMPLE_MESH}}
+         {example-meshes.lisp}
+         {42}{63}{}
+
+\LispCode[COD:EXAMPLE_MESH_RENDER]
+         {Entity example code \textemdash\, Rendering code}
+         {Rendering code for code \ref{COD:EXAMPLE_MESH}}
+         {example-meshes.lisp}
+         {65}{85}{}
+
+\CCode[COD:EXAMPLE_MESH_VS]
+      {Entity example code \textemdash\, Vertex shader}
+      {Vertex shader used in code \ref{COD:EXAMPLE_MESH}}
+      {model.vert}
+      {}{}{}
+         
+\CCode[COD:EXAMPLE_MESH_FS]
+      {Entity example code \textemdash\, Fragment shader}
+      {Fragment shader used in code \ref{COD:EXAMPLE_MESH}}
+      {model.frag}
+      {1}{46}{}
+
+\CCode[COD:EXAMPLE_MESH_FS_DIR]
+      {Entity example code \textemdash\, Fragment shader directional light calculation}
+      {Supporting function for code \ref{COD:EXAMPLE_MESH_FS}}
+      {model.frag}
+      {48}{61}{}
+
+\CCode[COD:EXAMPLE_MESH_FS_POINT]
+      {Entity example code \textemdash\, Fragment shader point light calculation}
+      {Supporting function for code \ref{COD:EXAMPLE_MESH_FS}}
+      {model.frag}
+      {63}{85}{}
+
+\section{Procedural Terrain}
+
+\label{APP:TERRAIN}
+
+\LispCode[COD:EXAMPLE_TERRAIN]
+         {Terrain example code \textemdash\, Main function}
+         {Code used in exploratory test to generate procedural terrain.
+           Also defines some global variables to avoid functions with many arguments.}
+         {example-terrain.lisp}
+         {1}{26}{}
+
+\LispCode[COD:EXAMPLE_TERRAIN_VERTICES]
+         {Terrain example code \textemdash\, Mesh vertices creation}
+         {Creates the vertices for code \ref{COD:EXAMPLE_TERRAIN}.
+           Sets the vertex height using samples from fractal Perlin noise.
+           Sets the vertex color as a function of the vertex height.}
+         {example-terrain.lisp}
+         {28}{58}{}
+
+\LispCode[COD:EXAMPLE_TERRAIN_INDICES]
+         {Terrain example code \textemdash\, Mesh indices calculation}
+         {Calculates the mesh indices for \ref{COD:EXAMPLE_TERRAIN}.
+           The indices are calculated to be rendered as a triangle strip.}
+         {example-terrain.lisp}
+         {60}{68}{}
+
+\LispCode[COD:EXAMPLE_TERRAIN_BUFFERS]
+         {Terrain example code \textemdash\, Mesh buffer setup}
+         {Sets up the mesh as OpenGL buffers for code \ref{COD:EXAMPLE_TERRAIN}}
+         {example-terrain.lisp}
+         {70}{101}{}
+
+\LispCode[COD:EXAMPLE_TERRAIN_RENDER]
+         {Terrain example code \textemdash\, Rendering function}
+         {Rendering code for code \ref{COD:EXAMPLE_TERRAIN}}
+         {example-terrain.lisp}
+         {101}{120}{}
+
+\CCode[COD:EXAMPLE_TERRAIN_VS]
+      {Entity example code \textemdash\, Vertex shader}
+      {Vertex shader used in code \ref{COD:EXAMPLE_TERRAIN}}
+      {model_1p.vert}
+      {}{}{}
+         
+\CCode[COD:EXAMPLE_TERRAIN_FS]
+      {Entity example code \textemdash\, Fragment shader}
+      {Fragment shader used in code \ref{COD:EXAMPLE_TERRAIN}}
+      {model_1p.frag}
+      {}{}{}

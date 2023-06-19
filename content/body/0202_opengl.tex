@@ -36,31 +36,57 @@ which will instruct the graphics hardware how to operate.
 To render a mesh for example,
 the context needs to be manipulated into the corresponding state,
 and then a rendering command can be executed.
+
+\subsubsection{OpenGL example}
+
 Working directly with this API is very cumbersome,
 especially as the scale of a project grows.
-The listings \ref{COD:GLINTRO_1},
-\ref{COD:GLINTRO_2},
-\ref{COD:GLINTRO_3},
-\ref{COD:GLINTRO_4},
-\ref{COD:GLINTRO_5} and \ref{COD:GLINTRO_6}
-showcase this with the most simple example program possible,
-rendering a single triangle.
-The program has been broken down with explanations for each part.
-This shows why an engine with appropriate abstractions is an absolute necessity.
+As an example,
+here follows a program for rendering a single triangle,
+which could be considered the simplest possible OpenGL program.
+The example is implemented using the \texttt{cl-opengl}\cite{clopengl} library used for the rest of this project.
 
-The final result of all this code can be seen in \figref{FIG:EXAMPLE_1}.
+Before the program can even start,
+mesh data and shader source code needs to be imported.
+In the case of this example it has been hard-coded (code \ref{COD:GLINTRO_1}).
+A detailed listing of the shader source code can be found in codes \ref{COD:EXAMPLE_TRI_VS} and \ref{COD:EXAMPLE_TRI_FS}.
 
 % Global variables
-\LispCode[COD:GLINTRO_1]{Basic OpenGL example \textemdash\, Global variables for 3D mesh and shader code}{These variables contain our mesh information, and our vertex shader code. They are not included fully here because their length would be substantial.}{gl-basic-example.lisp}{1}{7}{1}
+\LispCode[COD:GLINTRO_1]{Basic OpenGL example \textemdash\, Global variables for 3D mesh and shader code}{Mesh data and vertex source code}{gl-basic-example.lisp}{1}{7}{1}
+
+To start off,
+a window needs to be created and an OpenGL context initialized.
+Furthermore,
+many OpenGL objects need to be generated to contain our data and state.
+In code \ref{COD:GLINTRO_2} the \ac{vbo} and \ac{ebo} will hold vertex data and vertex indices respectively.
+Variables also need to be created to store references to the individual shaders and the shader program.
 
 % glfwInit and glfwCreateWindow
-\LispCode[COD:GLINTRO_2]{Basic OpenGL example \textemdash\, Initialize OpenGL and create objects}{The GLFW functions take care of interacting with the OS to create a new window, a new OpenGL context, and link them. The rest of the variables are the minimum OpenGL objects we need to render anything to the screen.}{gl-basic-example.lisp}{9}{27}{9}
+\LispCode[COD:GLINTRO_2]{Basic OpenGL example \textemdash\, Initialize OpenGL and create objects}{Window creation and OpenGL object generation.}{gl-basic-example.lisp}{9}{27}{9}
+
+Code \ref{COD:GLINTRO_3} takes care of compiling the individual shaders and linking them together in a shader program.
+Error checking and handling is omitted in this example,
+but would add additional code and complexity. Code \ref{COD:GLINTRO_4} sets up the buffers generated earlier to hold mesh data.
+Furthermore,
+the \ac{vao} is configured so that the vertex layout can be understood by the shaders.
 
 % Shader compilation and linking
-\LispCode[COD:GLINTRO_3]{Basic OpenGL example \textemdash\, Shader compilation and linking}{These OpenGL functions load shader source into memory and compile the shaders so that the GPU can execute them. Then the shaders get linked together in a shader program that the GPU will use as a rendering pipeline.}{gl-basic-example.lisp}{29}{39}{29}
+\LispCode[COD:GLINTRO_3]{Basic OpenGL example \textemdash\, Shader compilation and linking}{Shader compilation and linking}{gl-basic-example.lisp}{29}{39}{29}
 
 % Setting up vao
-\LispCode[COD:GLINTRO_4]{Basic OpenGL example \textemdash\, Vertex array spec}{Here we load all the mesh data into OpenGL buffers and we specify its structure. The functions on lines 53 and 54 take care of mapping the different vertex attributes onto the relevant shader inputs.}{gl-basic-example.lisp}{41}{54}{41}
+\LispCode[COD:GLINTRO_4]{Basic OpenGL example \textemdash\, Vertex array spec}{Mesh setup.}{gl-basic-example.lisp}{41}{54}{41}
+
+Now that all the data is set up,
+and the OpenGL context has the correct state,
+some actual rendering can be done.
+In code \ref{COD:GLINTRO_5} the only actual function that instructs the \ac{gpu} to render anything,
+is \texttt{gl:draw-elements} on line 65.
+The rest of the code surrounding it is again needed to manipulate state.
+
+Finally, the code in listing \ref{COD:GLINTRO_6} cleans up the OpenGL context.
+The result of executing all this code can be seen in \figref{FIG:EXAMPLE_1}.
+Hopefully this example shows why a graphics engine with proper abstractions is not only useful,
+but an absolute necessity for even the most basic graphics programming.
 
 % Render Loop
 \LispCode[COD:GLINTRO_5]{Basic OpenGL example \textemdash\, Render loop}{The actual rendering code. Of these lines, the only part that actually instructs OpenGL to render is the function call on line 65. The other functions only take care of getting the OpenGL context in the proper state. The final two lines instruct that the OS to draw the rendered framebuffer the window.}{gl-basic-example.lisp}{56}{74}{56}

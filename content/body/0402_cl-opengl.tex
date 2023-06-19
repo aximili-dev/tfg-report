@@ -12,6 +12,11 @@ The integration of OpenGL could be considered the core of the engine architectur
 
 The finished engine provides a macro called \texttt{with-graphics},
 that takes care of the following steps.
+A visual overview can be seen in \figref{FIG:WITH_GRAPHICS}
+
+\begin{figure}[with-graphics macro sequence diagram]{FIG:WITH_GRAPHICS}{The different steps taken by the \texttt{with-graphics} macro before it starts running the user code}
+\includesvg[width=\textwidth]{opengl-sequence}
+\end{figure}
 
 \paragraph{OpenGL and GLFW initialization}
 

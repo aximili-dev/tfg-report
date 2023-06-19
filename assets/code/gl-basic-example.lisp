@@ -1,6 +1,6 @@
 ;; A mesh represented as a list of points and a list of indices
-(defparameter *vertices* #(-0.5 -0.5 0.0 ...))
-(defparameter *indices*  #(0 1 2 2 3 4 5 ...))
+(defparameter *vertices* #(-0.5 -0.5 0.0 0.5 -0.5 0.0 0.0 0.5 0.0))
+(defparameter *indices*  #(0 1 2))
 
 ;; Shader source code
 (defparameter *vs-source* "#version 330 core\n ...")

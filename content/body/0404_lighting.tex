@@ -43,9 +43,17 @@ By mapping a diffuse texture as well as a specular texture,
 the Phong model detailed in the previous section shows its true power.
 When shading flat surfaces,
 it can give the impression of depth and reflections without extra geometry.
-An example is shown in figure \ref{FIG:PHONG}
+An example is shown in figure \ref{FIG:PHONG}\footnote{
+\href{https://learnopengl.com/img/textures/container2.png}{Diffuse texture} and
+\href{https://learnopengl.com/img/textures/container2_specular.png}{Specular map} obtained from
+\href{https://learnopengl.com/Lighting/Lighting-maps}{Learn OpenGL}
+\textcopyright\,
+\href{https://twitter.com/JoeyDeVriez}{Joey de Vries}
+\href{https://creativecommons.org/licenses/by/4.0/legalcode}{CC BY 4.0} }
 
-\begin{figure}[Phong lighting with texture mapping]{FIG:PHONG}{A cube mesh with diffuse and specular textures mapped to it, shaded using the Phong Reflection Model. \url{https://learnopengl.com/img/textures/container2.png} and \url{https://learnopengl.com/img/textures/container2_specular.png} \textcopyright Joey de Vries (\url{https://twitter.com/JoeyDeVriez}) (\url{https://learnopengl.com/Lighting/Lighting-maps}) \href{https://creativecommons.org/licenses/by/4.0/legalcode}{CC BY 4.0} }
+% \url{https://learnopengl.com/img/textures/container2.png} and \url{https://learnopengl.com/img/textures/container2_specular.png} \textcopyright Joey de Vries (\url{https://twitter.com/JoeyDeVriez}) (\url{https://learnopengl.com/Lighting/Lighting-maps}) \href{https://creativecommons.org/licenses/by/4.0/legalcode}{CC BY 4.0}
+
+\begin{figure}[Phong lighting with texture mapping]{FIG:PHONG}{A cube mesh with diffuse and specular textures mapped to it, shaded using the Phong Reflection Model.}
   \subfigure[SBFIG:CONTAINER_DIFFUSE]{\href{https://learnopengl.com/img/textures/container2.png}{Diffuse texture}}{\image{}{3cm}{container}}
   \subfigure[SBFIG:CONTAINER_SPECULAR]{\href{https://learnopengl.com/img/textures/container2_specular.png}{Specular map}}{\image{}{3cm}{container.specular}}
   \subfigure[SBFIG:CONTAINER_RENDER]{Rendered mesh}{\image{}{3cm}{container_render}}

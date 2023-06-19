@@ -1,2 +1,13 @@
 * PROJ Report
-** TODO Modify results to mention that marching cubes wasn't implemented
+** DONE Modify results to mention that marching cubes wasn't implemented
+** DONE OpenGL showcase, move explanation to text, shorter captions
+** TODO Design and implementation
+*** TODO Add requirements
+*** TODO Add sequence diagrams
+*** TODO Add architecture diagrams
+** DONE Copyright notice, clean up
+** DONE Procedural meshes, orphan title
+** DONE Exploratory testing, add example code
+*** DONE Triangle
+*** DONE Meshes
+*** DONE Terrain
