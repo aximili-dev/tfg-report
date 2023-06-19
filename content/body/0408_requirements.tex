@@ -1,0 +1,37 @@
+\label{SEC:DESIGN_REQS}
+
+\newcounter{FReqCounter}
+\newcounter{NFReqCounter}
+
+\newcommand{\funreq}[1]
+           {\stepcounter{FReqCounter}
+             \item [FREQ\theFReqCounter] #1}
+
+\newcommand{\nfunreq}[1]
+           {\stepcounter{NFReqCounter}
+             \item [NFREQ\theNFReqCounter] #1}
+
+Based on the project scope and the project control list defined in \secref{SEC:LIFECYCLE},
+the following requirements can be derived.
+
+\subsection{Functional requirements}
+
+\begin{description}
+\funreq{Load meshes from files}
+\funreq{Render meshes}
+\funreq{Apply shading to meshes using the Phong reflection model}
+\funreq{Support different types of light sources}
+\funreq{Map textures to meshes}
+\funreq{Transform meshes}
+\funreq{Sample Perlin noise}
+\funreq{Generate fractal Perlin noise}
+\funreq{Render debug information on the screen using bitmap fonts}
+\end{description}
+
+\subsection{Non-functional requirements}
+
+\begin{description}
+\nfunreq{The resulting interface should be easy to use}
+\nfunreq{The engine should be platform independent}
+\nfunreq{The engine should show clear errors when they are encountered}
+\end{description}
